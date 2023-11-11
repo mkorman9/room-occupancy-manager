@@ -11,18 +11,6 @@
 ./mvnw package
 ```
 
-When the app is packaged, the Docker image can be built with:
-
-```sh
-docker build -t room-occupancy-manager .
-```
-
-And later started with:
-
-```sh
-docker run -it --rm -p 8080:8080 room-occupancy-manager
-```
-
 ## Start the app locally
 
 ```sh
@@ -64,6 +52,19 @@ Expected response is:
     "not enough rooms to allocate guest paying 22.00"
   ]
 }
+```
+
+## (Optional) Create a Docker image
+
+```sh
+./mvnw package
+docker build -t room-occupancy-manager .
+```
+
+Container can be started with:
+
+```sh
+docker run -it --rm -p 8080:8080 room-occupancy-manager
 ```
 
 ## Side notes
