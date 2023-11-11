@@ -1,5 +1,7 @@
 package com.github.mkorman9.roomoccupancymanager;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.Path;
@@ -17,7 +19,7 @@ public class OccupancyResource {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Occupancy calculateOccupancy(OccupancyCalculationRequest request) {
+    public Occupancy calculateOccupancy(@NotNull @Valid OccupancyCalculationRequest request) {
         return occupancyCalculator.calculate(
             request.guestOffers(),
             request.availableRooms().premium(),

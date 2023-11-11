@@ -1,15 +1,19 @@
 package com.github.mkorman9.roomoccupancymanager;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+
 import java.math.BigDecimal;
 import java.util.List;
 
 public record OccupancyCalculationRequest(
-    List<BigDecimal> guestOffers,
-    AvailableRooms availableRooms
+    @NotNull List<@Min(0) BigDecimal> guestOffers,
+    @NotNull @Valid AvailableRooms availableRooms
 ) {
     public record AvailableRooms(
-       int premium,
-       int economy
+       @Min(0) int premium,
+       @Min(0) int economy
     ) {
     }
 }

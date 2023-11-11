@@ -124,6 +124,30 @@ class OccupancyResourceTest {
         );
     }
 
+    @Test
+    public void testNegativeGuestOffer() {
+        // given
+        var offers = List.of(BigDecimal.valueOf(-10));
+        var premium = 0;
+        var economy = 0;
+
+        // when then
+        sendCalculationRequest(offers, premium, economy)
+            .statusCode(400);
+    }
+
+    @Test
+    public void testNegativeRooms() {
+        // given
+        var offers = List.of(BigDecimal.valueOf(10));
+        var premium = -1;
+        var economy = -1;
+
+        // when then
+        sendCalculationRequest(offers, premium, economy)
+            .statusCode(400);
+    }
+
     private ValidatableResponse sendCalculationRequest(List<BigDecimal> offers, int premium, int economy) {
         return given()
             .when()
