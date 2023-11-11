@@ -70,3 +70,4 @@ Expected response is:
 
 - App assumes the currency is always EUR
 - Complexity of the used algorithm is `O(n * log(n))` where `n` is the number of guest offers
+- Project is integrated with GitHub Actions to build on each push 
