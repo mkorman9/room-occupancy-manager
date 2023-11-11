@@ -3,6 +3,7 @@
 ## Prerequisites
 
 - Java 21 installed locally (project has been tested with Temurin OpenJDK 21.0.1+12 on Linux)
+- (Optionally) Configured Docker client to build an image
 
 ## Run tests and build a package
 
@@ -10,7 +11,19 @@
 ./mvnw package
 ```
 
-## Start app locally
+When the app is packaged, the Docker image can be built with:
+
+```sh
+docker build -t room-occupancy-manager .
+```
+
+And later started with:
+
+```sh
+docker run -it --rm -p 8080:8080 room-occupancy-manager
+```
+
+## Start the app locally
 
 ```sh
 ./mvnw quarkus:dev
