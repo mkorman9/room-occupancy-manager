@@ -4,7 +4,7 @@ import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 @QuarkusTest
-class StubTest {
+class OccupancyResourceTest {
     @Test
     public void stubTest() {
     }
